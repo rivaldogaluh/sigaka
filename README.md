@@ -1,6 +1,6 @@
 # sigaka
 website sistem informasi gaji karyawan
 
-Login admin : 
+Login : 
 user : admin
 pass : admin
