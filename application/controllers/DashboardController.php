@@ -6,6 +6,7 @@ class DashboardController extends CI_Controller{
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->library('session');
 		$model = array('DashboardModel');
 		$this->load->model($model);
 		if (!$this->session->has_userdata('session_id')) {
@@ -21,6 +22,8 @@ class DashboardController extends CI_Controller{
 			'jumlah_absen' => $this->DashboardModel->jumlah_absen(),
 			'title' => 'Dashboard'
 		);
+		$data['user'] = $this->db->get_where('sigaka_pengguna', ['pengguna_username' =>
+        $this->session->userdata('session_username')])->row_array();
 		$this->load->view('templates/header',$data);
 		$this->load->view('backend/index',$data);
 		$this->load->view('templates/footer');

@@ -21,6 +21,8 @@ class PinjamController extends CI_Controller{
 			'pinjam' => $this->PinjamModel->lihat_pinjaman(),
 			'title' => 'Pinjaman'
 		);
+		$data['user'] = $this->db->get_where('sigaka_pengguna', ['pengguna_username' =>
+        $this->session->userdata('session_username')])->row_array();
 		$this->load->view('templates/header',$data);
 		$this->load->view('backend/pinjam/index',$data);
 		$this->load->view('templates/footer');

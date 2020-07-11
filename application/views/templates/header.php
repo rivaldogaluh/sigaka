@@ -12,9 +12,7 @@
 	<title><?= $title ?> - SIGAKA</title>
 	<link rel="apple-touch-icon" href="<?= base_url() ?>assets/images/ico/apple-icon-120.png">
 	<link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>assets/images/logo/63-512.png">
-	<link
-		href="<?= base_url() ?>assets/css/fonts/css93c2.css?family=Muli:300,300i,400,400i,600,600i,700,700i%7CComfortaa:300,400,700"
-		rel="stylesheet">
+	<link href="<?= base_url() ?>assets/css/fonts/css93c2.css?family=Muli:300,300i,400,400i,600,600i,700,700i%7CComfortaa:300,400,700" rel="stylesheet">
 
 	<!-- BEGIN: Vendor CSS-->
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/vendors/css/vendors.min.css">
@@ -22,10 +20,8 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/css/plugins/forms/switch.min.css">
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/css/core/colors/palette-switch.min.css">
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/vendors/css/charts/chartist.css">
-	<link rel="stylesheet" type="text/css"
-		  href="<?= base_url() ?>assets/vendors/css/charts/chartist-plugin-tooltip.css">
-	<link rel="stylesheet" type="text/css"
-		  href="<?= base_url() ?>assets/vendors/css/tables/datatable/datatables.min.css">
+	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/vendors/css/charts/chartist-plugin-tooltip.css">
+	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/vendors/css/tables/datatable/datatables.min.css">
 
 	<link rel="stylesheet" type="text/css"
 		  href="<?= base_url() ?>assets/vendors/css/pickers/daterange/daterangepicker.css">
@@ -83,32 +79,49 @@
 		<div class="navbar-container content">
 			<div class="collapse navbar-collapse show" id="navbar-mobile">
 				<ul class="nav navbar-nav mr-auto float-left">
-					<li class="nav-item mobile-menu d-md-none mr-auto"><a
-							class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i
-								class="ft-menu font-large-1"></i></a></li>
-					<li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs"
-															  href="#"><i class="ft-menu"></i></a></li>
-					<li class="nav-item d-none d-md-block"><a class="nav-link nav-link-expand" href="#"><i
-								class="ficon ft-maximize"></i></a></li>
+					<li class="nav-item mobile-menu d-md-none mr-auto">
+						<a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#">
+							<i class="ft-menu font-large-1"></i>
+						</a>
+					</li>
+					<li class="nav-item d-none d-md-block">
+						<a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#">
+							<i class="ft-menu"></i>
+						</a>
+					</li>
+					<li class="nav-item d-none d-md-block">
+						<a class="nav-link nav-link-expand" href="#">
+							<i class="ficon ft-maximize"></i>
+						</a>
+					</li>
 				</ul>
 				<ul class="nav navbar-nav float-right">
 					<li class="dropdown dropdown-user nav-item">
-						<a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown"> 
-							<span class="avatar avatar-online"><img src="<?= base_url() ?>assets/images/portrait/small/profil-circle-512.png" alt="avatar"></span>
+						
+						<a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+							<span class="avatar avatar-online">
+								<img src="<?= base_url('assets/images/profile/') . $user['pengguna_foto']; ?>" alt="avatar">
+							</span>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right">
 							<div class="arrow_box_right">
 								<a class="dropdown-item" href="#">
-									<span class="avatar avatar-online"><strong>
-										<?= $this->session->userdata('session_nama'); ?></strong></span><br><br>
+									<span class="avatar avatar-online">
+										<strong>
+										<?= $this->session->userdata('session_nama'); ?>	
+										</strong>
+									</span><br><br>
 										<?= $this->session->userdata('session_hak_akses'); ?>
 									</span></a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="<?= base_url('logout') ?>"><i class="ft-power"></i>
-									Logout</a>
+								<a class="dropdown-item" href="<?= base_url('logout') ?>">
+									<i class="ft-power"></i>
+									Logout
+								</a>
 							</div>
 						</div>
 					</li>
+					
 				</ul>
 			</div>
 		</div>
@@ -153,7 +166,7 @@
 					</li>
 					<li class="<?php if ($this->uri->segment(1) == 'pengguna') echo 'active' ?>">
 						<a href="<?= base_url('pengguna') ?>">
-							<i class="ft-user-check"></i> Pengguna
+							<i class="ft-user-check"></i> Data Pengguna
 						</a>
 					</li>
 				</ul>

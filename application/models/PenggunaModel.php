@@ -23,12 +23,25 @@ class PenggunaModel extends CI_Model{
 		return $query->result_array();
 	}
 
+	// public function ambil_hakakses(){
+	// 	$this->db->select('*');
+	// 	$this->db->from('sigaka_pengguna');
+	// 	$this->db->group_by('pengguna_hak_akses');
+	// 	$query = $this->db->get();
+	// 	return $query->result_array();
+	// }
+
 	public function lihat_satu_pengguna($id){
 		$this->db->select('*');
 		$this->db->from('sigaka_pengguna');
 		$this->db->where('pengguna_id',$id);
 		$query = $this->db->get();
 		return $query->row_array();
+	}
+
+	public function tambah_pengguna($data){
+		$this->db->insert('sigaka_pengguna', $data);
+		return $this->db->affected_rows();
 	}
 
 	public function hapus_pengguna($id){
