@@ -33,7 +33,7 @@
 			?>
 			<div class="card-header">
 				<h1 style="text-align: center">Data Jabatan</h1>
-				<?php if ($this->session->userdata('session_hak_akses') == 'manajer'):?>
+				<?php if ($this->session->userdata('session_hak_akses') == 'admin' || $this->session->userdata('session_hak_akses') == 'manajer'):?>
 				<button type="button" class="btn btn-primary btn-bg-gradient-x-purple-blue box-shadow-2" data-toggle="modal" data-target="#tambah">
 					<i class="ft-plus-circle"></i> Tambah jabatan
 				</button>
@@ -60,7 +60,7 @@
 						<td><?=$value['jabatan_nama']?></td>
 						<td>Rp. <?=nominal($value['jabatan_gaji'])?></td>
 						<td>
-							<?php if ($this->session->userdata('session_hak_akses') == 'manajer'):?>
+							<?php if ($this->session->userdata('session_hak_akses') == 'admin' || $this->session->userdata('session_hak_akses') == 'manajer'):?>
 							<button class="btn btn-success btn-sm  btn-bg-gradient-x-blue-green box-shadow-2 gaji-edit" data-toggle="modal" data-target="#ubah" value="<?=$value['jabatan_id']?>"><i class="ft-edit"></i></button>
 							<button class="btn btn-danger btn-sm  btn-bg-gradient-x-red-pink box-shadow-2 gaji-hapus" data-toggle="modal" data-target="#hapus" value="<?=$value['jabatan_id']?>"><i class="ft-trash"></i></button>
 							<?php endif;?>

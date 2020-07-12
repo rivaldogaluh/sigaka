@@ -76,7 +76,7 @@
 									class="btn btn-success btn-sm  btn-bg-gradient-x-purple-blue box-shadow-2 gaji-lihat"
 									data-toggle="modal" data-target="#lihat" value="<?= $value['gaji_id'] ?>"
 									title="Lihat selengkapnya"><i class="ft-eye"></i></button>
-								<?php if ($this->session->userdata('session_hak_akses') == 'manajer'): ?>
+									<?php if ($this->session->userdata('session_hak_akses') == 'admin' || $this->session->userdata('session_hak_akses') == 'manajer'):?>
 									<?php
 									if ($value['gaji_status'] == 'belum'):
 										?>

@@ -33,7 +33,7 @@
 			?>
 			<div class="card-header">
 				<h1 style="text-align: center">Data Karyawan</h1>
-				<?php if ($this->session->userdata('session_hak_akses') == 'manajer'):?>
+				<?php if ($this->session->userdata('session_hak_akses') == 'admin' || $this->session->userdata('session_hak_akses') == 'manajer'):?>
 				<button type="button" class="btn btn-primary btn-bg-gradient-x-purple-blue box-shadow-2"
 						data-toggle="modal" data-target="#bootstrap">
 					<i class="ft-plus-circle"></i> Tambah data karyawan
@@ -69,15 +69,16 @@
 									class="btn btn-success btn-sm  btn-bg-gradient-x-purple-blue box-shadow-2 karyawan-lihat"
 									data-toggle="modal" data-target="#lihat" value="<?= $value['karyawan_id'] ?>"
 									title="Lihat selengkapnya"><i class="ft-eye"></i></button>
-								<?php if ($this->session->userdata('session_hak_akses') == 'manajer'):?>
+								<?php if ($this->session->userdata('session_hak_akses') == 'admin' || $this->session->userdata('session_hak_akses') == 'manajer'):?>
 								<button
 									class="btn btn-success btn-sm  btn-bg-gradient-x-blue-green box-shadow-2 karyawan-edit"
 									data-toggle="modal" data-target="#ubah" value="<?= $value['karyawan_id'] ?>"
 									title="Update data karyawan"><i class="ft-edit"></i></button>
 								<button
 									class="btn btn-danger btn-sm  btn-bg-gradient-x-red-pink box-shadow-2 karyawan-hapus"
-									data-toggle="modal" data-target="#hapus" value="<?= $value['karyawan_id'] ?>"
-									title="Hapus data karyawan"><i class="ft-trash"></i></button>
+									data-toggle="modal" data-target="#hapus" value="<?= $value['karyawan_id'] ?>" title="Hapus data karyawan">
+									<i class="ft-trash"></i>
+								</button>
 								<?php endif;?>
 							</td>
 						</tr>
@@ -121,9 +122,9 @@
 						<input type="date" class="form-control" name="tanggal_lahir" id="tl" placeholder="Tanggal Lahir"
 							   autocomplete="off" required>
 						<div class="input-group-append">
-										<span class="input-group-text">
-											<span class="ft-calendar"></span>
-										</span>
+							<span class="input-group-text">
+								<span class="ft-calendar"></span>
+							</span>
 						</div>
 					</div>
 				</fieldset>
@@ -135,12 +136,11 @@
 				<fieldset class="form-group floating-label-form-group">
 					<label for="tg">Tanggal Bergabung</label>
 					<div class='input-group'>
-						<input type="date" class="form-control" id="tg" name="tanggal_gabung"
-							   placeholder="Tanggal Bergabung" autocomplete="off" required>
+						<input type="date" class="form-control" id="tg" name="tanggal_gabung" placeholder="Tanggal Bergabung" autocomplete="off" required>
 						<div class="input-group-append">
-										<span class="input-group-text">
-											<span class="ft-calendar"></span>
-										</span>
+							<span class="input-group-text">
+								<span class="ft-calendar"></span>
+							</span>
 						</div>
 					</div>
 				</fieldset>
@@ -206,26 +206,24 @@
 						<input type="date" class="form-control" name="tanggal_lahir" id="lihat_tl"
 							   placeholder="Tanggal Lahir" autocomplete="off" readonly>
 						<div class="input-group-append">
-										<span class="input-group-text">
-											<span class="ft-calendar"></span>
-										</span>
+							<span class="input-group-text">
+								<span class="ft-calendar"></span>
+							</span>
 						</div>
 					</div>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="lihat_alamat">Alamat</label>
-					<textarea class="form-control" id="lihat_alamat" rows="3" name="alamat" placeholder="Alamat"
-							  autocomplete="off" readonly></textarea>
+					<textarea class="form-control" id="lihat_alamat" rows="3" name="alamat" placeholder="Alamat" autocomplete="off" readonly></textarea>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="lihat_tg">Tanggal Bergabung</label>
 					<div class='input-group'>
-						<input type="date" class="form-control" id="lihat_tg" name="tanggal_gabung"
-							   placeholder="Tanggal Bergabung" autocomplete="off" readonly>
+						<input type="date" class="form-control" id="lihat_tg" name="tanggal_gabung"  placeholder="Tanggal Bergabung" autocomplete="off" readonly>
 						<div class="input-group-append">
-										<span class="input-group-text">
-											<span class="ft-calendar"></span>
-										</span>
+							<span class="input-group-text">
+								<span class="ft-calendar"></span>
+							</span>
 						</div>
 					</div>
 				</fieldset>
@@ -251,8 +249,7 @@
 				</fieldset>
 			</div>
 			<div class="modal-footer">
-				<input type="reset" class="btn btn-secondary btn-bg-gradient-x-red-pink" data-dismiss="modal"
-					   value="Tutup">
+				<input type="reset" class="btn btn-secondary btn-bg-gradient-x-red-pink" data-dismiss="modal" value="Tutup">
 			</div>
 		</div>
 	</div>

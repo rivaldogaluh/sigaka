@@ -19,6 +19,8 @@ class JabatanController extends CI_Controller{
 			'jabatan' => $this->JabatanModel->lihat_jabatan(),
 			'title' => 'Jabatan'
 		);
+		$data['user'] = $this->db->get_where('sigaka_pengguna', ['pengguna_username' =>
+        $this->session->userdata('session_username')])->row_array();
 		$this->load->view('templates/header',$data);
 		$this->load->view('backend/jabatan/index',$data);
 		$this->load->view('templates/footer');

@@ -11,24 +11,50 @@ class PenggunaModel extends CI_Model{
 	}
 
 	public function get_user_account($user){
+		$this->db->select('*');
+		$this->db->join('sigaka_hak_akses', 'sigaka_hak_akses.hak_akses_id = sigaka_pengguna.hak_akses_id');
 		$query = $this->db->get_where('sigaka_pengguna',$user);
 		return $query->row_array();
+
+		// $query = $this->db->get_where('sigaka_pengguna',$user);
+		// return $query->row_array();
 	}
 
 	public function lihat_pengguna(){
 		$this->db->select('*');
 		$this->db->from('sigaka_pengguna');
+		$this->db->join('sigaka_hak_akses', 'sigaka_hak_akses.hak_akses_id = sigaka_pengguna.hak_akses_id');
 		$this->db->order_by('pengguna_date_created','DESC');
 		$query = $this->db->get();
 		return $query->result_array();
 	}
 
+	// public function ambil_hakakses(){
+	// 	$this->db->select('*');
+	// 	$this->db->from('sigaka_pengguna');
+	// 	$this->db->group_by('pengguna_hak_akses');
+	// 	$query = $this->db->get();
+	// 	return $query->result_array();
+	// }
+
+
+
 	public function lihat_satu_pengguna($id){
 		$this->db->select('*');
-		$this->db->from('sigaka_pengguna');
-		$this->db->where('pengguna_id',$id);
-		$query = $this->db->get();
+		$query = $this->db->get_where('sigaka_pengguna',$id);
 		return $query->row_array();
+
+	}
+
+	public function tambah_pengguna($data){
+		$this->db->insert('sigaka_pengguna', $data);
+		return $this->db->affected_rows();
+	}
+
+	public function update_pengguna($id,$data){
+		$this->db->where('pengguna_id',$id);
+		$this->db->update('sigaka_pengguna',$data);
+		return $this->db->affected_rows();
 	}
 
 	public function hapus_pengguna($id){

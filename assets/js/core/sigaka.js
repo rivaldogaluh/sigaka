@@ -86,6 +86,8 @@ $(document).ready(function () {
 		});
 	});
 
+	
+
 	// ------------------------------------------------------------------------------------------
 
 	$('.karyawan-edit').click(function (e) {
@@ -126,6 +128,37 @@ $(document).ready(function () {
 		$('#hapuskaryawan').html(html);
 	});
 
+	$('.pengguna-hapus').click(function () {
+		var id = $(this).val();
+		var html = '' +
+			'<a href="'+root+'pengguna/hapus/'+id+'" class="btn btn-danger btn-bg-gradient-x-red-pink">Hapus</a>';
+		$('#hapuspengguna').html(html);
+	});
+	//------------------------------------------------------------------------------------------
+	// Pengguna
+	//------------------------------------------------------------------------------------------
+	$('.pengguna-lihat').click(function (e) {
+		e.preventDefault();
+		var id = $(this).val();
+		var getUrl = root + 'pengguna/lihat/' + id;
+		$.ajax({
+			url : getUrl,
+			type : 'ajax',
+			dataType : 'json',
+			success: function (response) {
+				if (response != null){
+					$('#lihat_username').val(response.pengguna_username);
+					$('#lihat_password').val(response.pengguna_password);
+					$('#lihat_nama').val(response.pengguna_nama);
+					$('#lihat_hak_akses').val(response.pengguna_hak_akses);
+					console.log(response);
+				}
+			},
+			error: function (response) {
+				console.log(response.status + 'error');
+			}
+		});
+	});
 
 	// ------------------------------------------------------------------------------------------
 	// easy autocomplete
@@ -161,6 +194,38 @@ $(document).ready(function () {
 	};
 
 	$('#nama_karyawan').easyAutocomplete(options);
+
+	var options = {
+		url : root + 'pengguna/ajaxIndex',
+		getValue: 'pengguna_nama',
+		adjustWidth : false,
+		list: {
+			sort: {
+				enabled: true
+			},
+			showAnimation: {
+				type: "fade", //normal|slide|fade
+				time: 400,
+				callback: function() {}
+			},
+
+			hideAnimation: {
+				type: "slide", //normal|slide|fade
+				time: 400,
+				callback: function() {}
+			},
+			match: {
+				enabled: true
+			},
+			onSelectItemEvent: function() {
+				var value = $("#nama_pengguna").getSelectedItemData().pengguna_id;
+
+				$("#id_pengguna").val(value).trigger("change");
+			}
+		}
+	};
+
+	$('#nama_pengguna').easyAutocomplete(options);
 
 	// ------------------------------------------------------------------------------------------
 	// absen
@@ -314,7 +379,7 @@ $(document).ready(function () {
 						'</button>' +
 						'</div>';
 					html += '' +
-						'<h2 style="text-align: center">Selkom Group</h2>' +
+						'<h3 style="text-align: center">Dapur Coding</h3>' +
 						'<p style="text-align: center">Laporan Bulan '+bulanArr[parseInt(bulan)-1]+' '+tahun+'</p>' +
 						'<table class="table table-bordered">' +
 						'<thead style="text-align: center">' +
@@ -364,12 +429,12 @@ $(document).ready(function () {
 						'<div class="row">' +
 						'<div class="col-8"></div>' +
 						'<div class="col-4 text-center">' +
-						'<p>Pekanbaru, '+date_indo(d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate())+'</p>' +
+						'<p>Jakarta, '+date_indo(d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate())+'</p>' +
 						'<p>Manajer</p>' +
 						'<br>' +
 						'<br>' +
 						'<br>' +
-						'<p><b><u>Abdul Mustaqim</u></b></p>' +
+						'<p><b><u>Rivaldo Galuh Prihandono</u></b></p>' +
 						'</div>' +
 						'</div>';
 					$('#laporan').html(html);

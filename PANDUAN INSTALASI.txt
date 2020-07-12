@@ -1,0 +1,40 @@
+Panduan instalasi :
+1. Download dan install aplikasi Xampp / Wampserver. di komputer.
+2. Ekstrak file aplikasi dan database menggunakan aplikasi winrar.
+3. Rename folder file aplikasi menjadi sigaka, lalu copas ke folder htdocs.
+4. Aktifkan Apache dan MySQL pada Xampp / Wampserver.
+5. Buka browser, lalu buka alamat localhost/phpmyadmin.
+6. Buat database baru dengan nama db_sigaka.
+7. Import database baru dengan nama db_sigaka.
+8. Jalankan project dengan browser ketik localhost/sigaka.
+9. Login dengan username : admin, password : admin
+10. Selesai.
+
+Fitur Aplikasi : 
+- Halaman Frontend
+- Login Admin
+- Data Karyawan
+- Data Jabatan
+- Data Pengguna
+- Data Absen
+- Data Gaji, detail gaji
+- Data Pinjaman
+- Data Laporan
+- Logout
+- dan lainnya
+
+AKSES LOGIN : 
+admin :
+username : admin
+password : admin
+
+manajer
+username : manajer
+password : manajer
+
+karyawan
+username : farizi 
+password : farizi
+
+link download source code:
+https://github.com/rivaldogaluh/sigaka

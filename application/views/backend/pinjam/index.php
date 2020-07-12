@@ -33,7 +33,7 @@
 			?>
 			<div class="card-header">
 				<h1 style="text-align: center">Pinjaman Karyawan</h1>
-				<?php if ($this->session->userdata('session_hak_akses') == 'manajer'):?>
+				<?php if ($this->session->userdata('session_hak_akses') == 'admin' || $this->session->userdata('session_hak_akses') == 'manajer'):?>
 				<button type="button" class="btn btn-primary btn-bg-gradient-x-purple-blue box-shadow-2"
 						data-toggle="modal" data-target="#tambah">
 					<i class="ft-plus-circle"></i> Tambah data Pinjaman

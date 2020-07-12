@@ -24,6 +24,8 @@ class AbsenController extends CI_Controller
 			'karyawan' => json_encode($this->KaryawanModel->lihat_karyawan()),
 			'title' => 'Absen'
 		);
+		$data['user'] = $this->db->get_where('sigaka_pengguna', ['pengguna_username' =>
+        $this->session->userdata('session_username')])->row_array();
 		$this->load->view('templates/header',$data);
 		$this->load->view('backend/absen/index', $data);
 		$this->load->view('templates/footer');
