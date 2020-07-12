@@ -37,8 +37,11 @@ class PenggunaModel extends CI_Model{
 	// 	return $query->result_array();
 	// }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 6123fa714bcf54e58e5ab4c42f537d7cf5cf5b35
 	public function lihat_satu_pengguna($id){
 		$this->db->select('*');
 		$query = $this->db->get_where('sigaka_pengguna',$id);
@@ -54,6 +57,11 @@ class PenggunaModel extends CI_Model{
 	public function update_pengguna($id,$data){
 		$this->db->where('pengguna_id',$id);
 		$this->db->update('sigaka_pengguna',$data);
+		return $this->db->affected_rows();
+	}
+
+	public function tambah_pengguna($data){
+		$this->db->insert('sigaka_pengguna', $data);
 		return $this->db->affected_rows();
 	}
 

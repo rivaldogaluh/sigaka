@@ -108,7 +108,11 @@
 								<a class="dropdown-item" href="#">
 									<span class="avatar avatar-online">
 										<strong>
+<<<<<<< HEAD
 										<?= ucwords($this->session->userdata('session_username')); ?>	
+=======
+										<?= $this->session->userdata('session_nama'); ?>	
+>>>>>>> 6123fa714bcf54e58e5ab4c42f537d7cf5cf5b35
 										</strong>
 									</span><br><br>
 										<?= $this->session->userdata('session_hak_akses'); ?>

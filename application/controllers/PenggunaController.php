@@ -26,8 +26,12 @@ class PenggunaController extends CI_Controller{
 		$data['user'] = $this->db->get_where('sigaka_pengguna', ['pengguna_username' =>
         $this->session->userdata('session_username')])->row_array();
         
+<<<<<<< HEAD
         $data['hakakses'] = $this->db->get('sigaka_hak_akses')->result_array();
        	
+=======
+        $data['hakakses'] = $this->db->get('sigaka_pengguna')->result_array();
+>>>>>>> 6123fa714bcf54e58e5ab4c42f537d7cf5cf5b35
 		$this->load->view('templates/header',$data);
 		$this->load->view('backend/pengguna/index',$data);
 		$this->load->view('templates/footer');
@@ -60,7 +64,11 @@ class PenggunaController extends CI_Controller{
 				$username = $this->input->post('username');
 				$nama = $this->input->post('nama');
 				$password = $this->input->post('password1');
+<<<<<<< HEAD
 				$hakakses = $this->input->post('hak_akses_id');
+=======
+				$hakakses = $this->input->post('pengguna_hak_akses');
+>>>>>>> 6123fa714bcf54e58e5ab4c42f537d7cf5cf5b35
 				//$tanggalGabung = $this->input->post('tanggal_gabung');
 
 				$data = array(
@@ -68,7 +76,11 @@ class PenggunaController extends CI_Controller{
 					'pengguna_nama' => htmlspecialchars($nama),
 					'pengguna_foto' => 'default.jpg',
 					'pengguna_password' => md5($password),
+<<<<<<< HEAD
 					'hak_akses_id' => $hakakses,
+=======
+					'pengguna_hak_akses' => $hakakses,
+>>>>>>> 6123fa714bcf54e58e5ab4c42f537d7cf5cf5b35
 					'pengguna_date_created' => time()
 				);
 				$save = $this->PenggunaModel->tambah_pengguna($data);
